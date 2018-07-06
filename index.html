@@ -410,7 +410,25 @@
           
             <h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><pre><code>最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。
 </code></pre><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><pre><code>首先是对于String这个类，类的声明如下：
-</code></pre><p>public final class String<br>implements java.io.Serializable, Comparable<string>, CharSequence<br>    从声明上可以看出，String用final修饰，意味着这个类不能被</string></p>
+</code></pre><p>public final class String<br>    implements java.io.Serializable, Comparable<string>, CharSequence<br>{<br>    /*<em> The value is used for character storage. </em>/<br>    private final char value[];</string></p>
+<pre><code>/** The offset is the first index of the storage that is used. */
+private final int offset;
+
+/** The count is the number of characters in the String. */
+private final int count;
+
+/** Cache the hash code for the string */
+private int hash; // Default to 0
+
+/** use serialVersionUID from JDK 1.0.2 for interoperability */
+private static final long serialVersionUID = -6849794470754667710L;
+
+......
+</code></pre><p>}<br>从上面的代码可以看出下面几点：</p>
+<ol>
+<li>String类是被final修饰，意味着不能被继承，并且它的所有成员和方法都是被final修饰。</li>
+<li>String底层是通过一个char数组来保存字符串。</li>
+</ol>
 
           
         
