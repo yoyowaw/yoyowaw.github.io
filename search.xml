@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[String,tringBuffer,StringBuilder]]></title>
     <url>%2F2018%2F07%2F06%2FString-tringBuffer-StringBuilder%2F</url>
-    <content type="text"><![CDATA[碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。 String首先是对于String这个类，要想知道更多莫过于查看底层的实现： public final class String implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence]]></content>
+    <content type="text"><![CDATA[碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。 String首先是对于String这个类，类的声明如下： public final class Stringimplements java.io.Serializable, Comparable, CharSequence 从声明上可以看出，String用final修饰，意味着这个类不能被]]></content>
       <categories>
         <category>Java</category>
       </categories>
