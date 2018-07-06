@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。 String首先是对于String这个类，类的声明如下： public final class String     implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence">
+<meta name="description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。  String首先是对于String这个类，类的声明如下： public final class String        implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSeque">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String,tringBuffer,StringBuilder">
 <meta property="og:url" content="http://yoursite.com/2018/07/06/String-tringBuffer-StringBuilder/index.html">
 <meta property="og:site_name" content="yoyo&#39;blog">
-<meta property="og:description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。 String首先是对于String这个类，类的声明如下： public final class String     implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence">
+<meta property="og:description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。  String首先是对于String这个类，类的声明如下： public final class String        implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSeque">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T02:28:02.900Z">
+<meta property="og:updated_time" content="2018-07-06T02:31:45.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String,tringBuffer,StringBuilder">
-<meta name="twitter:description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。 String首先是对于String这个类，类的声明如下： public final class String     implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence">
+<meta name="twitter:description" content="碎碎念最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。  String首先是对于String这个类，类的声明如下： public final class String        implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSeque">
 
 
 
@@ -407,29 +407,30 @@
       
 
       
-        <h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><pre><code>最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。
-</code></pre><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><pre><code>首先是对于String这个类，类的声明如下：
-public final class String
-    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence
-{
-    /** The value is used for character storage. */
-    private final char value[];
+        <h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>最近在找实习不太顺利，于是准备在家在复习复习基础，这篇文章一方面是想巩固一下以前练习的面试题，一方面是想在深入理解一下底层的实现。</p>
+<hr>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>首先是对于String这个类，类的声明如下：</p>
+<pre><code>public final class String
+       implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence
+   {
+       /** The value is used for character storage. */
+       private final char value[];
 
-    /** The offset is the first index of the storage that is used. */
-    private final int offset;
+       /** The offset is the first index of the storage that is used. */
+       private final int offset;
 
-    /** The count is the number of characters in the String. */
-    private final int count;
+       /** The count is the number of characters in the String. */
+       private final int count;
 
-    /** Cache the hash code for the string */
-    private int hash; // Default to 0
+       /** Cache the hash code for the string */
+       private int hash; // Default to 0
 
-    /** use serialVersionUID from JDK 1.0.2 for interoperability */
-    private static final long serialVersionUID = -6849794470754667710L;
+       /** use serialVersionUID from JDK 1.0.2 for interoperability */
+       private static final long serialVersionUID = -6849794470754667710L;
 
-    ......
+       ......
 
-}
+   }
 </code></pre><p>从上面的代码可以看出下面几点：</p>
 <ol>
 <li>String类是被final修饰，意味着不能被继承，并且它的所有成员和方法都是被final修饰。</li>
